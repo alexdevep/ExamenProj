@@ -2,7 +2,9 @@ const express = require("express");
 const bodyParser = require('body-parser');
 const app = express();
 
-//const morgan = require('morgan');
+const cors = require('cors');
+var corsOptions = { origin: true, optionsSuccessStatus: 200 };
+app.use(cors(corsOptions));
 
 const Exam = require('./models/examen');
 
@@ -22,6 +24,7 @@ app.get('/', (req, res) => {
 
 //------------------------------------------------- EXAMENES ---------------------------------------
 app.get('/examenes', (req, res) => {
+    console.log(">>/examenes");
     Exam.getExam((err, data) => {
         if(err){
             res.status(500).json({ success: false, msg: 'Fallo conexion'});
@@ -31,6 +34,8 @@ app.get('/examenes', (req, res) => {
 });
 
 app.post('/nuevo', function (req, res) {
+    console.log(">>/nuevo");
+    console.log(req.body);
     try {
         const objData = {
             nombre: req.body.nombre,
@@ -56,7 +61,7 @@ app.post('/nuevo', function (req, res) {
 });
 
 app.get('/resby/:id', (req, res) => {
-
+    console.log(">>/resby/:id");
     const resData = {
         id: req.params.id
     };
@@ -70,6 +75,7 @@ app.get('/resby/:id', (req, res) => {
 });
 
 app.post('/respuesta', function (req, res) {
+    console.log(">>/respuesta");
     try {
         //const {objData} = req.body;
 

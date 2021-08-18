@@ -1,0 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500&display=swap');
+
+  body{background-image: url(./img/slider3.jpg);
+    background-attachment:fixed;
+    background-position:center center;
+    background-repeat:no-repeat;   
+    margin: 0px;
+    padding: 0px;
+    overflow-X: hidden;
+    overflow-Y: scroll; 
+  }
+
+  .wrap{
+      width: 1000px;
+      max-width: 90%;
+      margin: 30px auto;
+  }
+
+  .contenedor {
+    position: relative;
+  }
+  
+  .hijo {
+    width: 250px;
+    height: 100px;
+    /* background-color: red; */
+    /* centrar vertical y horizontalmente */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin: -25px 0 0 -25px; /* aplicar a top y al margen izquierdo un valor negativo para completar el centrado del elemento hijo */
+  }
